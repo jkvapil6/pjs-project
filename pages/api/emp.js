@@ -26,6 +26,7 @@ export default (req, res) => {
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     ssl: true,
+    sslmode: "require",
     insecureAuth: true
   }
 
@@ -44,8 +45,8 @@ export default (req, res) => {
     console.log(emps)
     knex.destroy()
 
-    res.statusCode = 200
-    res.json({ emps })
+    // res.statusCode = 200
+    res.status(200).json({ emps })
   }
 
   getEmployees()

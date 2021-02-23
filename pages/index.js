@@ -1,17 +1,25 @@
 import { useState, useEffect } from 'react'
 
+// import useSWR from 'swr'
+
 import Content from '../components/common/Content'
+
+
+// const fetcher = (url) => fetch(url).then((res) => res.json())
 
 ///
 /// Home component
 ///
 const Home = () => {
 
+  
+  // const { emps, error }  = useSWR('/api/emp', fetcher)
+
   const [emps, setEmps] = useState([])
 
   // useEffect(() => {
   //   console.log(emps)
-  // }, emps)
+  // }, [emps])
 
   useEffect(() => {
     getEmployees()
@@ -26,6 +34,10 @@ const Home = () => {
       setEmps(data.emps)
     }
   }
+
+  // if (error) return <div>Failed to load</div>
+
+  // if (!emps) return <div>Loading...</div>
 
   return (
     <Content>

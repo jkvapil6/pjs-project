@@ -28,3 +28,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## 
+
+```sql
+CREATE TABLE IF NOT EXISTS "Department" (
+	"id"	SERIAL NOT NULL,
+	"name"	TEXT NOT NULL,
+	"city"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "Job" (
+	"id"	SERIAL NOT NULL,
+	"name"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "Employee" (
+	"id"	SERIAL NOT NULL,
+	"name"	TEXT NOT NULL,
+	"jobId"	INTEGER NOT NULL,
+	"salary"	NUMERIC NOT NULL,
+	"depId"	INTEGER NOT NULL,
+	FOREIGN KEY("depId") REFERENCES "Department"("id"),
+	FOREIGN KEY("jobId") REFERENCES "Job"("id"),
+	PRIMARY KEY("id")
+);
+```
