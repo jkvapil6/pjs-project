@@ -2,9 +2,16 @@ import { useState, useEffect } from 'react'
 
 import Content from '../components/common/Content'
 
-export default function Home() {
+///
+/// Home component
+///
+const Home = () => {
 
   const [emps, setEmps] = useState([])
+
+  // useEffect(() => {
+  //   console.log(emps)
+  // }, emps)
 
   useEffect(() => {
     getEmployees()
@@ -24,10 +31,22 @@ export default function Home() {
     <Content>
       <h1>Employees</h1>
       <ul>
-        { emps.map(e => (
+        { emps? emps.map(e => (
           <li key={e.id}>{e.name}</li>
-        )) }
+        )) : ""}
       </ul>
     </Content>
   )
 }
+
+
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await fetch(`https://localhost:3000/api/emps`)
+//   const data = await res.json()
+
+//   // Pass data to the page via props
+//   return { props: { data } }
+// }
+
+export default Home
