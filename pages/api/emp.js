@@ -26,7 +26,7 @@ export default (req, res) => {
     password : process.env.DB_PASS,
     database : process.env.DB_NAME,
     ssl: true,
-    insecureAuth: true
+    // insecureAuth: true
   }
 
 
